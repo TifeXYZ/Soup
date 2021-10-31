@@ -16,10 +16,13 @@ public class main extends JavaPlugin implements Listener {
         this.getServer().getPluginManager().registerEvents((Listener)this, (Plugin)this);
         System.out.println("Enabled Tife's Simple Soup.");
     }
+    
     @EventHandler
     public void PlayerSoupInteractEvent (PlayerInteractEvent event) {
-        if (event.getAction() == Action.RIGHT_CLICK_BLOCK | event.getAction() == Action.RIGHT_CLICK_AIR) {
-            if (event.getItem().getType() == Material.MUSHROOM_SOUP) {
+        Player player = event.getPlayer;
+        if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+            //Checks if item is a mushroom soup (MUSHROOM_STEW for later versions) and checks if the item is not null or vice versa
+            if (player.getInventory().getItemInMainHand() != null && player.getInventory.getItemInMainHand.equals(Material.MUSHROOM_SOUP)) {
                 Player p = event.getPlayer();
                 if (p.getHealth() > 11.0) {
                     p.setHealth(20.0);
